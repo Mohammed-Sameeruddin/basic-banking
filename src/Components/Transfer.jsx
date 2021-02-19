@@ -14,11 +14,11 @@ const Transfer = (props) => {
     }
     const submitFunc = (event) => {
         event.preventDefault();
-        axios.get(`/customers/${props.data.id}`).then((response)=>{
+        axios.get(`https://bankingbackend.herokuapp.com/customers/${props.data.id}`).then((response)=>{
            const updateData = response.data[0];
            bal = updateData.balance;
             const updatedAmt = updateData.balance+parseInt(amount);
-            axios.put(`/customers/${updateData._id}`,{
+            axios.put(`https://bankingbackend.herokuapp.com/customers/${updateData._id}`,{
                 accno : updateData.accno,
                 name : updateData.name,
                 email : updateData.email,
@@ -28,7 +28,7 @@ const Transfer = (props) => {
         });
 
         axios({
-            url:'/transfer',
+            url:'https://bankingbackend.herokuapp.com/transfer',
             method: 'POST',
             data: {
                 to : props.data.id,

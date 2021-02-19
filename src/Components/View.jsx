@@ -8,7 +8,7 @@ import Transfer from './Transfer';
 const View = (props) => {
     const [view,setView] = useState({});
     useEffect(()=>{
-        axios.get(`/customers/${props.id}`).then((response)=>{
+        axios.get(`https://bankingbackend.herokuapp.com/customers/${props.id}`).then((response)=>{
             setView(response.data[0]);
         })
     },[])

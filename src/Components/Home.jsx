@@ -15,7 +15,7 @@ const Home = () => {
     const [transfer,setTransfer] = useState([]);
     const showCustomer = () => {
         if(cstate === false) {
-        axios.get('/customers').then((response) => {
+        axios.get('https://bankingbackend.herokuapp.com/customers').then((response) => {
             const customerData = response.data;
             setData(customerData);
         }).catch((err)=>{console.log(err);});
@@ -28,7 +28,7 @@ const Home = () => {
 
     const showTransfer = () => {
         if(tstate === false) {
-        axios.get('/transfer').then((response) => {
+        axios.get('https://bankingbackend.herokuapp.com/transfer').then((response) => {
             const customerData = response.data;
             setTransfer(customerData);
         }).catch((err)=>{console.log(err);});
